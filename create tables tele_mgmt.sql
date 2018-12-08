@@ -9,8 +9,7 @@ CREATE TABLE profile(
 );
 
 CREATE TABLE cab(
-
-		cab_id INTEGER NOT NULL,
+  	cab_id INTEGER NOT NULL,
 		cab INTEGER,
 		shelf INTEGER,
 		slot INTEGER,
@@ -20,7 +19,6 @@ CREATE TABLE cab(
 );
 
 CREATE TABLE cer_vert(
-
 		vertical_id INTEGER NOT NULL,
 		vertical_location INTEGER,
 		vertical_sub_id INTEGER,
@@ -29,14 +27,12 @@ CREATE TABLE cer_vert(
 );
 
 CREATE TABLE per_vert(
-
 		per_vert_location INTEGER,
 		per_vert_port INTEGER
 
 );
 
 CREATE TABLE floorbox(
-
 		floorbox_id INTEGER,
 		floorbox_per TEXT,
 		floorbox_level TEXT,
@@ -45,7 +41,6 @@ CREATE TABLE floorbox(
 );
 
 CREATE TABLE logs(
-
 		post_id INTEGER,
 		post_timestamp INTEGER,
 		poster_initials TEXT,
