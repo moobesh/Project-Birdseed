@@ -4,12 +4,12 @@ CREATE TABLE profile(
 		id INTEGER NOT NULL AUTO_INCREMENT, 
 		name TEXT, 
 		extention INTEGER, 
-		type VARCHAR(255), 
+		type TEXT, 
 		PRIMARY KEY(id)
 );
 
 CREATE TABLE cab(
-  	cab_id INTEGER NOT NULL,
+		cab_id INTEGER NOT NULL,
 		cab INTEGER,
 		shelf INTEGER,
 		slot INTEGER,
