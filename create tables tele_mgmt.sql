@@ -9,7 +9,7 @@ CREATE TABLE profile(
 );
 
 CREATE TABLE cab(
-		cab_id INTEGER NOT NULL,
+  	cab_id INTEGER NOT NULL,
 		cab INTEGER,
 		shelf INTEGER,
 		slot INTEGER,
