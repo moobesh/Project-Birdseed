@@ -1,23 +1,16 @@
 ################### PHP SELECT ####################################################################################################
 # 1.0 11-12-19 GM - created test php script, extracts all connect of the profiles db table.
-#
+# 2.0 11-12-19 GM - Pushed php to get open connection from connection.php script.
 ###################################################################################################################################
 
  <?php
-$servername = "localhost";
-$username = "php_admin";
-$password = "5elfPHP123";
-$dbname = "tele_mgmt";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+ require_once('./connection.php');
 
-$sql = "SELECT * FROM profile ;";
-$result = $conn->query($sql);
+// Queries all info from profile table.
+$query = "SELECT * FROM profile ;";
+$result = mysqli_query($dbc, $query);
+
 
 if ($result->num_rows > 0) {
     // output data of each row
@@ -27,6 +20,6 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
-$conn->close();
+$dbc->close();
 ?> 
 
