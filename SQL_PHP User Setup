@@ -1,0 +1,8 @@
+#THIS IS A REFERENCE FILE IN REGARDS TO PHP_SQL USER SETUP THI WAS CREATED ON XAMPP MYPHPADMIN CONSOLE.
+
+User account for PHP Setup basic steps;
+Host = Localhost
+User = php_admin
+Pass = 5elfPHP123
+
+Global privledges EXCLUDE ADMIN functions on SQL database
