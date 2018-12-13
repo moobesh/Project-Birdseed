@@ -14,13 +14,15 @@
 <h1> TELEPHONY MANAGEMENT SOLUTION </h1>
 
 <h4>Input</h4>
-<form method="POST">
+<form action="./insert.php" method="POST">
 
 	<fieldset>
 	 	Name:<br>
 		<input type="text" name="in_name" placeholder="Enter Data"><br>
 		Extension:<br>
 		<input type="text" name="in_extension" placeholder="Enter Data"><br>
+		Type:<br>
+		<input type="text" name="in_type" placeholder="Enter Data"><br>
 		<input type="submit" name="in_submit" value="Submit">
 	</fieldset>
 
@@ -42,26 +44,33 @@
 
 <h4>RESULTS</h4>
 
+
+
+
+
+
 <?php
+// THIS IS THE QUERY PHP SCRIPT FOR OUTPUT FIELDS //
+
 require_once('./connection.php');
 
 
 // Queries all info from profile table.
 $outname = $_GET["out_name"];
-$query = "SELECT * FROM profile WHERE name='$outname';";
-$result = mysqli_query($dbc, $query);
-$noquery = "SELECT * FROM profile WHERE name = 'NULL';";
-$noresults = mysqli_query($dbc, $noquery);
+$namequery = "SELECT * FROM profile WHERE name='$outname';";
+$nameresult = mysqli_query($dbc, $namequery);
 
 
 // Queries all extension info from profile table.
 $outextension = $_GET["out_extension"];
-$query = "SELECT * FROM profile WHERE extension='$outextension';";
-$result = mysqli_query($dbc, $query);
-$noquery = "SELECT * FROM profile WHERE extension = 0;";
-$noresults = mysqli_query($dbc, $noquery);
+$extquery = "SELECT * FROM profile WHERE extension='$outextension';";
+$extresult = mysqli_query($dbc, $extquery);
 
-if ($result->num_rows > 0) {
+
+
+
+// Query for Name Values.
+if ($nameresult->num_rows > 0) {
 	  echo "<table>
 	  			<tr>
 	  				<th>ID</th>
@@ -71,44 +80,50 @@ if ($result->num_rows > 0) {
 	  			</tr>";
 	  			
    // output data of each row
-   while($row = $result->fetch_assoc()) {
+   while($namerow = $nameresult->fetch_assoc()) {
 	   echo "<tr>
-			   <td>" . $row["id"]. "</td>
-			   <td>" . $row["name"]. "</td>
-			   <td>" . $row["extension"]. "</td>
-			   <td>". $row["type"]."</td>
+			   <td>" . $namerow["id"]. "</td>
+			   <td>" . $namerow["name"]. "</td>
+			   <td>" . $namerow["extension"]. "</td>
+			   <td>". $namerow["type"]."</td>
 	   		</tr>";
 
    }
    echo "</table>";
-} else {
-   if ($noresults->num_rows > 0) {
-	  echo "<table>
-	  			<tr>
-	  				<th>ID</th>
-	  				<th>Name</th>
-	  				<th>Extension</th>
-	  				<th>Type</th>
-	  			</tr>";
-	  			
-   // output data of each row
-   while($row = $noresults->fetch_assoc()) {
-	   echo "<tr>
-			   <td>" . $row["id"]. "</td>
-			   <td>" . $row["name"]. "</td>
-			   <td>" . $row["extension"]. "</td>
-			   <td>". $row["type"]."</td>
-	   		</tr>";
+} 
 
-   } 
 
-}  
-} echo "</table>";
+//Query for Extension Values..
+if ($extresult->num_rows > 0) {
+	echo "<table>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Extension</th>
+					<th>Type</th>
+				</tr>";
+				
+ // output data of each row
+ while($extrow = $extresult->fetch_assoc()) {
+	 echo "<tr>
+			 <td>" . $extrow["id"]. "</td>
+			 <td>" . $extrow["name"]. "</td>
+			 <td>" . $extrow["extension"]. "</td>
+			 <td>". $extrow["type"]."</td>
+			 </tr>";
+
+ }
+ echo "</table>";
+} 
+
 
 
 $dbc->close();
 
 ?> 
+
+
+
 
 </body>
 </html>
