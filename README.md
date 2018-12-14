@@ -17,6 +17,9 @@ PHP scripts:
 
 
 STEPS TO TAKE
+- Create table DB table for login profiles
+    > test1, admin , etc.
+    
 - create alter,delete php/html.
     > query after completion.
     > put test data through this.
