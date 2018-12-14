@@ -1,4 +1,5 @@
 # Project-Birdseed
+!Please run on server using local account *u*NOT*u* A.
 to build the most awesome telephony management system to manage the most unweildly telephony 
 
 # Progress report of upcoming changes
