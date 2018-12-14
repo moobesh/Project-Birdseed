@@ -19,6 +19,8 @@ PHP scripts:
 
 
 STEPS TO TAKE
+- create special input (all):
+    > lists all *
     
 - create alter,delete php/html.
     > query after completion.
