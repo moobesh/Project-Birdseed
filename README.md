@@ -20,7 +20,7 @@ PHP scripts:
 
 **STEPS TO TAKE**
     
-- create alter,delete php/html. === WIP / currently got conversion errors. need to research.
+- create alter,delete php/html. === WIP / currently got conversion errors with alter_name. need to research.
     > put test data through this. 
     > query after completion. - AFTER ABOVE
         
