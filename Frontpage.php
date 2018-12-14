@@ -1,113 +1,170 @@
 <!DOCTYPE html>
 <html>
 <header>
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />	
 	<style type="text/css">
 		
 		table, th, td {
-    border: 1px solid black;
-}
+		border: .25px solid black;
+		}
+
 	</style>
-<title> TELEPHONY MANAGEMENT SOLUTION </title>
+
+	<title> TELEPHONY MANAGEMENT SOLUTION </title>
 </header>
 
 <body>
-<h1> TELEPHONY MANAGEMENT SOLUTION </h1>
-
+<h1>TELEPHONY MANAGEMENT SOLUTION</h1>
 <h4>Input</h4>
-<form method="POST">
+<form action="" method="POST" class="forms">
 
 	<fieldset>
-	 	Name:<br>
-		<input type="text" name="in_name" placeholder="Enter Data"><br>
-		Extension:<br>
-		<input type="text" name="in_extension" placeholder="Enter Data"><br>
-		<input type="submit" name="in_submit" value="Submit">
+	 	<h5>Name:</h5>
+			<input type="text" name="in_name" placeholder="Enter Data">
+		<h5>Extension:</h5>
+			<input type="text" name="in_extension" placeholder="Enter Data">
+		<h5>Type:</h5>
+			<input type="text" name="in_type" placeholder="Enter Data"><br>
+		<input type="submit" name="in_submit" value="Submit"><br />
 	</fieldset>
 
 </form>
 
-<h4>Output</h4>
-<form method="GET">
+<h4>Query</h4>
+	<form method="GET" class="forms">
 
-	<fieldset>
-	 	Name:<br>
-		<input type="text" name="out_name" placeholder="Enter Data"><br>
-		Extension:<br>
-		<input type="text" name="out_extension" placeholder="Enter Data"><br>
-		<input type="submit" name="out_submit" value="Submit">
-	</fieldset>
+		<fieldset>
+			<h5>Name:</h5>
+				<input type="text" name="query_name" placeholder="Enter Data">
+			<h5>Extension:</h5> 
+				<input type="text" name="query_extension" placeholder="Enter Data"><br>
+			<input type="submit" name="query_submit" value="Submit"><br />
+		</fieldset>
 
-</form>
+	</form>
+
+<h4>Alter</h4>
+	<form method="POST" class="forms">
+
+		<fieldset>
+			<h5>Extension:</h5>
+				<input type="text" name="alter_extension" placeholder="Enter Data"><label>*Required Field</label>
+			<h5>Name:</h5>
+				<input type="text" name="alter_name" placeholder="Enter Data">
+			<h5>Type:</h5>
+				<input type="text" name="alter_type" placeholder="Enter Data">
+			<input type="submit" name="alter_submit" value="Submit"><br />
+		</fieldset>
+
+	</form>
+
+<h4>Delete</h4>
+	<form method="POST" class="forms">
+
+		<fieldset>
+			<h5>Name:</h5>
+				<input type="text" name="delete_name" placeholder="Enter Data">
+			<h5>Extension:</h5> 
+				<input type="text" name="delete_extension" placeholder="Enter Data"><br>
+			<input type="submit" name="delete_submit" value="Submit"><br />
+		</fieldset>
+
+	</form>
 
 
 <h4>RESULTS</h4>
 
 <?php
-require_once('./connection.php');
+	// THIS IS THE QUERY PHP SCRIPT FOR OUTPUT FIELDS //
+	require_once('connection.php');
+
+	// Queries all info from profile table.
+	$queryname = $_GET["query_name"];
+	$queryname_query = "SELECT * FROM profile WHERE name='$queryname';";
+	$queryname_result = mysqli_query($dbc, $queryname_query);
+
+	// Queries all extension info from profile table.
+	$queryext= $_GET["query_extension"];
+	$queryext_query = "SELECT * FROM profile WHERE extension='$queryext';";
+	$queryext_result = mysqli_query($dbc, $queryext_query);
+
+	$noresults= "0 Results!" ;
 
 
-// Queries all info from profile table.
-$outname = $_GET["out_name"];
-$query = "SELECT * FROM profile WHERE name='$outname';";
-$result = mysqli_query($dbc, $query);
-$noquery = "SELECT * FROM profile WHERE name = 'NULL';";
-$noresults = mysqli_query($dbc, $noquery);
 
+	// Query for Name Values.
+	if ($queryname_result->num_rows > 0) {
+		//table creation
+		echo "<table>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Extension</th>
+						<th>Type</th>
+					</tr>";
+					
+	// output data of each row
+	while($queryname_row = $queryname_result->fetch_assoc()) {
+		echo "<tr>
+				<td>" . $queryname_row ["id"]. "</td>
+				<td>" . $queryname_row["name"]. "</td>
+				<td>" . $queryname_row["extension"]. "</td>
+				<td>" . $queryname_row["type"]."</td>
+				</tr>";
 
-// Queries all extension info from profile table.
-$outextension = $_GET["out_extension"];
-$query = "SELECT * FROM profile WHERE extension='$outextension';";
-$result = mysqli_query($dbc, $query);
-$noquery = "SELECT * FROM profile WHERE extension = 0;";
-$noresults = mysqli_query($dbc, $noquery);
+	}
+		echo "</table>";
 
-if ($result->num_rows > 0) {
-	  echo "<table>
-	  			<tr>
-	  				<th>ID</th>
-	  				<th>Name</th>
-	  				<th>Extension</th>
-	  				<th>Type</th>
-	  			</tr>";
-	  			
-   // output data of each row
-   while($row = $result->fetch_assoc()) {
-	   echo "<tr>
-			   <td>" . $row["id"]. "</td>
-			   <td>" . $row["name"]. "</td>
-			   <td>" . $row["extension"]. "</td>
-			   <td>". $row["type"]."</td>
-	   		</tr>";
+	// SPECIAL ENTRY FOR ALL INPUT IN FILE SELECTS ALL DATA.	
+	} elseif ($queryname == "ALL"){
+		$ALLquery = "SELECT * FROM profile;";
+		$ALLquery_result = mysqli_query($dbc,$ALLquery);
 
-   }
-   echo "</table>";
-} else {
-   if ($noresults->num_rows > 0) {
-	  echo "<table>
-	  			<tr>
-	  				<th>ID</th>
-	  				<th>Name</th>
-	  				<th>Extension</th>
-	  				<th>Type</th>
-	  			</tr>";
-	  			
-   // output data of each row
-   while($row = $noresults->fetch_assoc()) {
-	   echo "<tr>
-			   <td>" . $row["id"]. "</td>
-			   <td>" . $row["name"]. "</td>
-			   <td>" . $row["extension"]. "</td>
-			   <td>". $row["type"]."</td>
-	   		</tr>";
+		echo "<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Extension</th>
+			<th>Type</th>
+		</tr>";
 
-   } 
+		//table creation
+		while($ALLquery_row = $ALLquery_result->fetch_assoc()) {
+			echo "<tr>
+					<td>" . $ALLquery_row ["id"]. "</td>
+					<td>" . $ALLquery_row["name"]. "</td>
+					<td>" . $ALLquery_row["extension"]. "</td>
+					<td>" . $ALLquery_row["type"]."</td>
+					</tr>";}
+		 echo "</table>";
 
-}  
-} echo "</table>";
+		}
+			else {echo $noresults; };
+	
+	//Query for Extension Values..
+	if ($queryext_result->num_rows > 0) {
+		echo "<table>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Extension</th>
+						<th>Type</th>
+					</tr>";
+					
+	// output data of each row
+	while($queryext_row = $queryext_result->fetch_assoc()) {
+		echo "<tr>
+				<td>" . $queryext_row["id"]. "</td>
+				<td>" . $queryext_row["name"]. "</td>
+				<td>" . $queryext_row["extension"]. "</td>
+				<td>" . $queryext_row["type"]."</td>
+				</tr>";
 
+	}
+	echo "</table>";
+	} 
 
-$dbc->close();
-
+	$dbc->close();
 ?> 
 
 </body>
