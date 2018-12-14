@@ -20,9 +20,9 @@ PHP scripts:
 
 **STEPS TO TAKE**
     
-- create alter,delete php/html. === WIP / currently got conversion errors with alter_name. need to research.
-    > put test data through this. 
-    > query after completion. - AFTER ABOVE
+- create alter,delete php/html.- COMPLETED
+    > put test data through this. - COMPLETED
+    > query after completion. - NEED TO ADD QUERY FUNCTION ON alter_name.php TO DISPLAY ON Alter_name.php.
         
 - Create new PHP pages for other tables. 
   > cab page.php
