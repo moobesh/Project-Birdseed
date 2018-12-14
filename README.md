@@ -11,6 +11,7 @@ HTTP Container:
 DB Container:
 - Implemented SQL Database; tables created: profile, cabs, etc. - completed.
 - Inserted test values into profiles. - completed.
+- Create table DB table for login profiles - completed.
 
 PHP scripts:
 - created select poc.: this queries all in profiles table format.
@@ -18,8 +19,6 @@ PHP scripts:
 
 
 STEPS TO TAKE
-- Create table DB table for login profiles
-    > test1, admin , etc.
     
 - create alter,delete php/html.
     > query after completion.
@@ -33,5 +32,10 @@ STEPS TO TAKE
   > upon completion, forwards to Admin Page with all navigation tabs.
   
  
+HANDOVER
+- tidied up new frontpage variables/script-syntax with PHPs.
+    > see latest update.
+    > Above steps to take still needs applying.
+    
 
 
