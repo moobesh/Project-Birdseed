@@ -14,13 +14,11 @@ DB Container:
 - Create table DB table for login profiles - completed.
 
 PHP scripts:
-- created select poc.: this queries all in profiles table format.
-- created insert data php: insert.php
-
+- created select this queries all in profiles table format.
+- created insert data php: insert.php.
+- created special input (all) - lists all data in the NAME FIELD
 
 STEPS TO TAKE
-- create special input (all):
-    > lists all *
     
 - create alter,delete php/html.
     > query after completion.
