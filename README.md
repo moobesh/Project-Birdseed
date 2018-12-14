@@ -19,14 +19,11 @@ PHP scripts:
 - created special input (all) - lists all data in the NAME FIELD
 
 **STEPS TO TAKE**
-    
-- create alter,delete php/html.- COMPLETED
-    > put test data through this. - COMPLETED
-    > query after completion. - NEED TO ADD QUERY FUNCTION ON alter_name.php TO DISPLAY ON Alter_name.php.
-        
-- Create new PHP pages for other tables. 
-  > cab page.php
-  > etc.php..
+ ALTER_NAME.PHP
+ - create alter,delete php/html.- COMPLETED
+ - put test data through this. - COMPLETED
+ -query after completion. - WIP | NEED TO ADD QUERY FUNCTION ON alter_name.php TO DISPLAY ON Alter_name.php.
+ - incorporate alter_type into PHP. - WIP |
  
  
  **FUTURE FEATURES**
