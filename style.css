@@ -1,0 +1,36 @@
+.forms{
+    
+}
+#nav{
+    background-color:rgb(190, 188, 188) ;
+}
+
+#nav h3{
+    color: white;
+    padding:5px 0px 0px 30px;
+    font-weight: bold;
+}
+table, th, td {
+    border: .25px solid rgb(85, 83, 83);
+    background-color: #fcd904;
+}
+#input-boxes{
+    padding-top:10px;
+    padding-bottom:10px;
+   
+}
+#input{
+    
+}
+
+#query{
+    
+}
+
+#alter{
+    
+}
+
+#delete{
+    
+}
