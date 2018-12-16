@@ -32,9 +32,19 @@ PHP scripts:
   
  
 **HANDOVER NOTES**
-- tidied up new frontpage variables/script-syntax with PHPs.
-    > see latest update.
-    > Above steps to take still needs applying.
+ 16/12/2018 BB
+  * alter_name.php changes name if the field is empty
+      - tried IS NOT NULL 
+
+  * add alter type into php
+      - can't get this working at the minute
+
+  * connected style.css and bootstrap files
+      - <link rel ="stylesheet" type ="type/css" href="./css/style.css">
+          + set frontpage to inline forms
+
+  * created a Grant and Ben folder to seperate code out so we dont overwrite each other's changes
+      - I think we need to look at version control properly
     
 
 
