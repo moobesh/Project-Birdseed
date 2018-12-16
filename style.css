@@ -1,0 +1,36 @@
+.forms{
+    
+}
+#nav{
+    background-color:grey ;
+}
+
+#nav h3{
+    color: white;
+    padding:5px 0px 0px 30px;
+    font-weight: bold;
+}
+table, th, td {
+    border: .25px solid black;
+    background-color: #fcd904;
+}
+#input-boxes{
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color:#fcd904;
+}
+#input{
+    background-color: #fcd904;
+}
+
+#query{
+    background-color: #fcd904;
+}
+
+#alter{
+    background-color:#fcd904;
+}
+
+#delete{
+    background-color:#fcd904;
+}
